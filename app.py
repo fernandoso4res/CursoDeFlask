@@ -26,6 +26,7 @@ def sobre():
 	return render_template("sobre.html", registros=registros)
 
 if __name__ =="__main__":
+	
 	app.run(debug=True)
 
 #http://127.0.0.1:5000
