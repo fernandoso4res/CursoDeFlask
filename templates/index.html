@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frutosas</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block conteudo %}
     <h2 style="text-align: center">Lista de Frutas</h2>
     <hr>
-<ol>
+<ul class="list-group">
     {% for fruta in frutas%}
-        <li>{{fruta}}</li>
+        <li class="list-group-item">{{fruta}}</li>
     {% endfor %}
-</ol>
+</ul>
 <form action="{{url_for('principal')}}" method="POST">
-    <label>Fruta</label>
-    <input type="text" name="fruta">
-    <button>Adicionar</button>
+    <div class="form-group">
+        <label for="exemploFruta">Fruta</label>
+        <input class="form-control" type="text" name="fruta" id="exemploFruta" placeholder="Digite o nome de uma fruta">
+    </div>
+    <button class="btn btn-success">Adicionar</button>
 </form>
-</body>
-</html>
+{%endblock conteudo%}
