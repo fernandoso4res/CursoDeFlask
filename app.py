@@ -10,7 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cursos.sqlite3'
 
 db = SQLAlchemy(app)
 with app.app_context():
-    db.create_all()
+	db.create_all()
 
 
 frutas = []	
@@ -65,10 +65,11 @@ def filmes(propriedade):
 
 @app.route('/cursos')
 def lista_cursos():
-	page = request.args.get('page', 1 , type=int)
+	page = request.args.get('page', 1, type=int)
 	per_page = 4
-	todos_cursos = cursos.query.paginate(page, per_page)
-	return render_template("cursos.html", cursos=todos_cursos)
+	todos_cursos = cursos.query.paginate(page=page,per_page=per_page)
+	return render_template("cursos.html",cursos=todos_cursos)
+#cria um novo curso
 
 @app.route('/cria_curso', methods=["GET", "POST"])
 def cria_curso():
@@ -107,8 +108,5 @@ def remove_curso(id):
 
 
 
-if __name__ =="__main__":
-	
+if __name__ == "__main__":
 	app.run(debug=True)
-
-#http://127.0.0.1:5000

@@ -16,8 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        
-            {% for curso in cursos.items %}
+        {% for curso in cursos.items %}
             <tr>
                 <td>{{curso.id}}</td>
                 <td>{{curso.nome}}</td>
@@ -32,7 +31,7 @@
     </tbody>
 </table>
 {% if cursos.has_prev %}
-<a href="{{url_for('lista_cursos', page=cursos.prev_num)}}">Cursos Anteriores</a>
+    <a href="{{url_for('lista_cursos', page=cursos.prev_num)}}">Cursos Anteriores</a>
 {% else %}
     Cursos listados
 {% endif %}
